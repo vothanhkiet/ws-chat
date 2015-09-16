@@ -1,0 +1,10 @@
+chat_server:
+    build: .
+    working_dir: /app/ws-chat
+    command: ./ws-chat
+    volumes:
+        - .:/app/ws-chat
+    expose:
+        - "8080"
+    ports:
+        - "8080:8080"
