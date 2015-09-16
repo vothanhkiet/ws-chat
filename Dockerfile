@@ -1,12 +1,14 @@
 FROM golang:latest
-
+MAINTAINER Kiet Thanh Vo <kiet@ventuso.net>
 # Get godep
 RUN go get github.com/tools/godep
 USER root
-RUN mkdir /app
+
+RUN mkdir /app  \
+    mkdir /app/ws-chat
 ADD . /app/ws-chat
-RUN cd /app/ws-chat &&\
-    godep restore   &&\
-	go build
- 
-EXPOSE 8080
+
+#WORKDIR /app/ws-chat
+#RUN godep restore
+#RUN go build
+#EXPOSE 8080
